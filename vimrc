@@ -38,6 +38,9 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Installed -------------------------------------------------------------
 
+" Colorscheme package
+Plugin 'https://github.com/flazz/vim-colorschemes.git'
+
 " NERDtree ~ Visualy displayed project file tree
 Plugin 'https://github.com/scrooloose/nerdtree.git'
 
