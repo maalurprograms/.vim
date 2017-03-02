@@ -82,6 +82,14 @@ filetype plugin indent on    " required
 autocmd vimenter * NERDTree
 autocmd VimEnter * wincmd p
 
+autocmd BufWinEnter * NERDTree
+autocmd BufWinEnter * wincmd p
+
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
+    \ 'AcceptSelection("t")': ['<cr>'],
+    \ }
+
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
