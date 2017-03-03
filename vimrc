@@ -1,6 +1,6 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
-
+" Vundle ________________________________________
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -62,6 +62,9 @@ Plugin 'https://github.com/vim-syntastic/syntastic.git'
 " lightline
 Plugin 'https://github.com/itchyny/lightline.vim.git'
 
+"Jedi Python autocomplete
+Plugin 'https://github.com/davidhalter/jedi-vim.git'
+
 " -----------------------------------------------------------------------
 
 " All of your Plugins must be added before the following line
@@ -77,33 +80,51 @@ filetype plugin indent on    " required
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 
 " see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
 
+" NERDTree ______________________________________
 autocmd vimenter * NERDTree
 autocmd VimEnter * wincmd p
 
 autocmd BufWinEnter * NERDTree
 autocmd BufWinEnter * wincmd p
 
+" Ctrl + p ______________________________________
 let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
     \ 'AcceptSelection("t")': ['<cr>'],
     \ }
 
+" Vim ___________________________________________
+filetype plugin on
+syntax on
+set number
+
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-
-syntax on
-set number
 
 set background=dark
 set termguicolors " if you want to run vim in a terminal
 colorscheme breezy
 
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
+
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
+" Lightline ______________________________________
 let g:lightline = {
       \ 'colorscheme': 'breezy',
       \ }
+
+" Syntastic _____________________________________
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_python_checkers = ['flake8']
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
