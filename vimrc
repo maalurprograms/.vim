@@ -82,19 +82,22 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 
 " NERDTree ______________________________________
-autocmd vimenter * NERDTree
-autocmd VimEnter * wincmd p
-
-autocmd BufWinEnter * NERDTree
-autocmd BufWinEnter * wincmd p
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let NERDTreeShowHidden=1
 
 " Ctrl + p ______________________________________
 let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
     \ 'AcceptSelection("t")': ['<cr>'],
     \ }
+map <C-T> :CtrlPBuffer<CR>
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 " Vim ___________________________________________
+
+" Custom Keys -----------------------------------
+let mapleader=" "
+map <leader>r :NERDTreeFind<cr>
 filetype plugin on
 syntax on
 set number
@@ -116,6 +119,8 @@ highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
+set clipboard=unnamedplus
 
 " Lightline ______________________________________
 let g:lightline = {
