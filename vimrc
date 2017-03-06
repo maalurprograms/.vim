@@ -96,8 +96,9 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 " Vim ___________________________________________
 
 " Custom Keys -----------------------------------
-let mapleader=" "
+let mapleader="ö"
 map <leader>r :NERDTreeFind<cr>
+map <leader>t :NERDTreeToggle<cr>
 filetype plugin on
 syntax on
 set number
