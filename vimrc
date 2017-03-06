@@ -99,9 +99,12 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 let mapleader="ö"
 map <leader>r :NERDTreeFind<cr>
 map <leader>t :NERDTreeToggle<cr>
+" -----------------------------------------------
+
 filetype plugin on
 syntax on
 set number
+set nowrap
 
 set tabstop=4
 set softtabstop=4
