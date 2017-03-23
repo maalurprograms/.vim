@@ -97,7 +97,7 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 
 " Custom Keys -----------------------------------
 let mapleader="ö"
-map <leader>r :NERDTreeFind<cr>
+map <leader>f :NERDTreeFind<cr>
 map <leader>t :NERDTreeToggle<cr>
 " -----------------------------------------------
 
@@ -119,8 +119,8 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
+autocmd FileType py highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+autocmd FileType py match OverLength /\%81v.\+/
 
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
@@ -132,7 +132,7 @@ let g:lightline = {
       \ }
 
 " Syntastic _____________________________________
-let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_python_checkers = ['flake8']
 
 set statusline+=%#warningmsg#
@@ -143,3 +143,6 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" Jedi
+let g:jedi#use_tabs_not_buffers = 1
