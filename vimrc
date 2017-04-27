@@ -62,8 +62,11 @@ Plugin 'https://github.com/vim-syntastic/syntastic.git'
 " lightline
 Plugin 'https://github.com/itchyny/lightline.vim.git'
 
-"Jedi Python autocomplete
+" Jedi Python autocomplete
 Plugin 'https://github.com/davidhalter/jedi-vim.git'
+
+" Super Tab
+Plugin 'ervandew/supertab'
 
 " -----------------------------------------------------------------------
 
@@ -100,6 +103,12 @@ let mapleader="ö"
 map <leader>f :NERDTreeFind<cr>
 map <leader>t :NERDTreeToggle<cr>
 " -----------------------------------------------
+
+if &term =~ '256color'
+    " Disable Background Color Erase (BCE) so that color schemes
+    " work properly when Vim is used inside tmux and GNU screen.
+    set t_ut=
+endif
 
 filetype plugin on
 syntax on
