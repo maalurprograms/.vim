@@ -38,34 +38,18 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Installed -------------------------------------------------------------
 
-" Colorscheme package
+Plugin 'honza/vim-snippets'
+Plugin 'SirVer/ultisnips'
+Plugin 'https://github.com/mtscout6/syntastic-local-eslint.vim'
 Plugin 'https://github.com/flazz/vim-colorschemes.git'
-
-" NERDtree ~ Visualy displayed project file tree
 Plugin 'https://github.com/scrooloose/nerdtree.git'
-
-" Ctrl P ~ Quick search files and open them
 Plugin 'https://github.com/ctrlpvim/ctrlp.vim.git'
-
-" fugitive ~ git integration
 Plugin 'https://github.com/tpope/vim-fugitive.git'
-
-" editorconf-vim ~ Configure settings for your porject
 Plugin 'https://github.com/editorconfig/editorconfig-vim.git'
-
-" NERDcommenter
 Plugin 'https://github.com/scrooloose/nerdcommenter.git'
-
-" syntastic ~ Syntax check
 Plugin 'https://github.com/vim-syntastic/syntastic.git'
-
-" lightline
 Plugin 'https://github.com/itchyny/lightline.vim.git'
-
-" Jedi Python autocomplete
 Plugin 'https://github.com/davidhalter/jedi-vim.git'
-
-" Super Tab
 Plugin 'ervandew/supertab'
 
 " -----------------------------------------------------------------------
@@ -103,6 +87,13 @@ let mapleader="ö"
 map <leader>f :NERDTreeFind<cr>
 map <leader>t :NERDTreeToggle<cr>
 " -----------------------------------------------
+
+" Snippets --------------------------------------
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/ultisnips']
+"------------------------------------------------
 
 if &term =~ '256color'
     " Disable Background Color Erase (BCE) so that color schemes
